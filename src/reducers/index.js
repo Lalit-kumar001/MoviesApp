@@ -75,7 +75,7 @@ export function search(state=searchInitialstate,action){
             showBox:false
         }
     }
-    else if(action.type==='remove-box'){
+    else if(action.type==='remove-card'){
         return{
             ...state,
             showBox:action.val

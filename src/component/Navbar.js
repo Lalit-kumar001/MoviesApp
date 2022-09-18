@@ -1,5 +1,5 @@
 import React from "react";
-import { handleMovieSearch,addTolist,removeBox } from "../actions";
+import { handleMovieSearch,addTolist,remove } from "../actions";
 import './style.css'
 class Navbar extends React.Component{
     constructor(props){
@@ -8,10 +8,17 @@ class Navbar extends React.Component{
           searchText:'',
         }
       }
-handleSearch=()=>{
+handleSearch=(event)=>{
+
+    if(event.keyCode == 'Backspace'){
+        console.log('backspace')
+    this.props.dispatch(remove());
+    }
+    else{
     const {searchText}=this.state
     // console.log('handle search ',searchText);
     this.props.dispatch(handleMovieSearch(searchText));
+}
 }
  handleChange=(e)=>{
 this.setState({
@@ -24,6 +31,7 @@ searchText:e.target.value
  }
 
 
+
     render()
     {
         // document.addEventListener('click',function(event){
@@ -32,13 +40,15 @@ searchText:e.target.value
         const {store}=this.props
         const {search}=store.getState();
         const {showBox,result}=search;
+        
+        
 
         return(
         <>
        <div className="nav">
        
 <div className="search-box"> 
-<input type="text" placeholder="search" onKeyPress={this.handleSearch} onChange={this.handleChange}></input>
+<input type="text" id="movie-name"  placeholder="search" onKeyPress={this.handleSearch} onChange={this.handleChange}></input>
 </div>
 <button className="search-btn" onClick={this.handleSearch}>search</button>
 

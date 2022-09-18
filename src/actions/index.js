@@ -61,5 +61,11 @@ export function removeBox(){
         val:false
     }
 }
+export function remove(){
+    return{
+        type:'remove-card',
+        val:false
+    }
+}
 // export default{Addmovies, RemoveFromfav, Addtofav}
 
