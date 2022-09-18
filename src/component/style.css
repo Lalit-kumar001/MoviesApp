@@ -575,7 +575,7 @@ height: auto;
 
     @media screen and (max-width: 500px) {
         *{
-            background-color: black;
+            background-color: gray;
             font-size: 1rem;
         }
         
@@ -596,7 +596,7 @@ height: auto;
             top: 7%;
             left: 1%;
             color: white;
-            box-shadow: 0px 0px 5px 1px gray;
+            box-shadow: 0px 0px 5px 1px black;
         }
         
         .search-box{
@@ -640,7 +640,7 @@ height: auto;
         
         }
         .tab:hover{
-            background-color: gray;
+            background-color: gold;
         }
         
         span{
@@ -656,7 +656,7 @@ height: auto;
             height: 33vh;
             position: relative;
             color: white;
-            box-shadow: 0px 0px 5px 1px grey;
+            box-shadow: 0px 0px 5px 1px black;
         }
         .left{
             width: 25%;

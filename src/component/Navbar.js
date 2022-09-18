@@ -8,17 +8,18 @@ class Navbar extends React.Component{
           searchText:'',
         }
       }
-handleSearch=(event)=>{
 
-    if(event.keyCode == 'Backspace'){
+
+    // handle backspace key 
+handleDown=(event)=>{
+    if(event.key === 'Backspace'){
         console.log('backspace')
     this.props.dispatch(remove());
     }
-    else{
-    const {searchText}=this.state
-    // console.log('handle search ',searchText);
-    this.props.dispatch(handleMovieSearch(searchText));
 }
+handleSearch=(event)=>{    
+    const {searchText}=this.state
+    this.props.dispatch(handleMovieSearch(searchText));
 }
  handleChange=(e)=>{
 this.setState({
@@ -34,9 +35,6 @@ searchText:e.target.value
 
     render()
     {
-        // document.addEventListener('click',function(event){
-        //   this.props.dispatch(removeBox())
-        //  })
         const {store}=this.props
         const {search}=store.getState();
         const {showBox,result}=search;
@@ -46,9 +44,10 @@ searchText:e.target.value
         return(
         <>
        <div className="nav">
+       {/*   */}
        
 <div className="search-box"> 
-<input type="text" id="movie-name"  placeholder="search" onKeyPress={this.handleSearch} onChange={this.handleChange}></input>
+<input type="text" id="movie-name"  placeholder="search" onKeyPress={this.handleSearch} onKeyDown={this.handleDown} onChange={this.handleChange}></input>
 </div>
 <button className="search-btn" onClick={this.handleSearch}>search</button>
 
